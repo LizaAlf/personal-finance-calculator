@@ -66,3 +66,32 @@ def show_balance(operations):
     print(f"Общий доход: {income} руб.")
     print(f"Общий расход: {expense} руб.")
     print(f"Текущий баланс: {income - expense} руб.")
+
+
+def main():
+    """Главная функция запуска приложения."""
+    operations = load_operations()
+    
+    while True:
+        print("\n=== Калькулятор личных финансов ===")
+        print("1. Добавить операцию")
+        print("2. Показать все операции")
+        print("3. Показать баланс")
+        print("0. Выход")
+        
+        choice = input("Выберите пункт меню: ").strip()
+        
+        if choice == "1":
+            add_operation(operations)
+        elif choice == "2":
+            show_operations(operations)
+        elif choice == "3":
+            show_balance(operations)
+        elif choice == "0":
+            print("До свидания!")
+            break
+        else:
+            print("Неверный ввод. Попробуйте снова.")
+
+if __name__ == "__main__":
+    main()
